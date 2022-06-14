@@ -8,6 +8,8 @@
 
 ## Customizing the example
 
+You only have to do these steps once, to set up an installation configuration for your project.
+
 * Download the `package.wxs` file from this repo, and place it in a new folder on your machine.
 
 * Alongside `package.wxs`, place the folder that contains the files you want to package (just as if you were going to package it into a `.zip`). It doesn't matter what you name it, because that name will *not* be seen by your users. In the example, I'm just calling it `MyFolder`.
@@ -22,7 +24,7 @@
 
 ## Building your package
 
-Except where otherwise stated, just run these commands verbatim.
+Do this every time you've got a new build that you want to package up into an installer. Except where otherwise stated, just run these commands verbatim.
 
 * `heat.exe dir MyFolder -cg AllFiles -o files.wxs -ag -gg -scom -sreg -sfrag -srd -dr INSTALLFOLDER -var var.AllFilesDir` (replacing `MyFolder` with the name of the folder where you put your files)
 
@@ -36,7 +38,7 @@ Except where otherwise stated, just run these commands verbatim.
 
   * Go back to `package.wxs` and put this ID into *both* of the `{{ID of your binary}}` placeholders. Remove the `{{braces}}` but keep the `#` symbol.
 
-  * **You'll need to redo this step every time you change your package contents.** The rest of the `package.wxs` steps in the "Customizing the example" section only need to be done once, but this one needs to be done every time.
+  * **Like everything in the "Building your package" section, you'll need to redo this step every time you change your package contents.** The rest of the `package.wxs` steps in the "Customizing the example" section only need to be done once, but this one needs to be done every time.
 
 * `candle.exe package.wxs files.wxs -dAllFilesDir=MyFolder` (again replacing `MyFolder` with the name of the folder where you put your files))
 
