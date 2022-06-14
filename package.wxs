@@ -17,22 +17,22 @@
         </Directory>
       </Directory>
 
-        <Directory Id="ProgramMenuFolder" Name="Programs">
-            <Directory Id="ProgramMenuDir" Name="{{Start Menu submenu name}}">
-                <Component Id="ProgramMenuDir" Guid="{{GUID}}">
-                    <RemoveFolder Id="ProgramMenuDir" On="uninstall" />
-                    <RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" Value="" KeyPath="yes" />
-                    <Shortcut Id="StartMenuShortcut" Name="{{Shortcut Name}}" Target="[#{{ID of your binary}}]" WorkingDirectory="INSTALLDIR" />
-                </Component>
-            </Directory>
+      <Directory Id="ProgramMenuFolder" Name="Programs">
+        <Directory Id="ProgramMenuDir" Name="{{Start Menu submenu name}}">
+          <Component Id="ProgramMenuDir" Guid="{{GUID}}">
+            <RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+            <RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" Value="" KeyPath="yes" />
+            <Shortcut Id="StartMenuShortcut" Name="{{Shortcut Name}}" Target="[#{{ID of your binary}}]" WorkingDirectory="INSTALLDIR" />
+          </Component>
         </Directory>
+      </Directory>
 
-        <Directory Id="DesktopFolder" Name="Desktop">
-            <Component Id="DesktopIcon" Guid="{{GUID}}">
-                <RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" Value="" KeyPath="yes" />
-                <Shortcut Id="DesktopShortcut" Name="{{Shortcut Name}}" Target="[#{{ID of your binary}}]" WorkingDirectory="INSTALLDIR" />
-            </Component>
-        </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop">
+        <Component Id="DesktopIcon" Guid="{{GUID}}">
+          <RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" Value="" KeyPath="yes" />
+          <Shortcut Id="DesktopShortcut" Name="{{Shortcut Name}}" Target="[#{{ID of your binary}}]" WorkingDirectory="INSTALLDIR" />
+        </Component>
+      </Directory>
     </Directory>
 
     <Feature Id="MainFeature">
@@ -40,7 +40,6 @@
       <ComponentRef Id="ProgramMenuDir" />
       <ComponentRef Id="DesktopIcon" />
     </Feature>
-
 
   </Product>
 </Wix>
