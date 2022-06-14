@@ -13,7 +13,7 @@
 
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFilesFolder">
-        <Directory Id="INSTALLFOLDER" Name="Amazing VN">
+        <Directory Id="INSTALLFOLDER" Name="{{Your Program Files subfolder}}">
         </Directory>
       </Directory>
 
